@@ -4,6 +4,9 @@ import com.rqwwp.dao.UserDao;
 import com.rqwwp.dao.impl.UserDaoImpl;
 import com.rqwwp.pojo.User;
 import com.rqwwp.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -13,9 +16,11 @@ import java.util.List;
  * @author LJH
  * @version 1.0
  */
+@Service
 public class UserServiceImpl implements UserService {
 
-    private UserDao userDao = new UserDaoImpl();
+    @Autowired
+    private UserDao userDao;
 
     @Override
     public List<User> findAll() {
